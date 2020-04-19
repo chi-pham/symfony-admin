@@ -58,11 +58,13 @@ class RoleCommand extends Command
                 $output->writeln('<error>' . $violation->getPropertyPath() . ': ' . $violation->getMessage()
                     . '</error>');
             }
-            return;
+            return 1;
         }
 
         $this->handler->handle($command);
 
         $output->writeln('<info>Done!</info>');
+
+        return 0;
     }
 }
