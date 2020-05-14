@@ -232,6 +232,11 @@ class User
         return $this->role;
     }
 
+    public function changePassword(string $hash): void
+    {
+        $this->passwordHash = $hash;
+    }
+
     /**
      * @ORM\PostLoad()
      */
