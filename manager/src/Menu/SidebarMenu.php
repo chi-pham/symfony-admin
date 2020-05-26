@@ -29,14 +29,16 @@ class SidebarMenu
             ->setAttribute('class', 'c-sidebar-nav-item')
             ->setLinkAttribute('class', 'c-sidebar-nav-link');
 
-        $menu->addChild('Users', ['route' => 'users'])
-            ->setExtra('icon', 'c-sidebar-nav-icon fas fa-user-cog')
-            ->setExtra('routes', [
-                ['route' => 'users'],
-                ['pattern' => '/^users\..+/']
-            ])
-            ->setAttribute('class', 'c-sidebar-nav-item')
-            ->setLinkAttribute('class', 'c-sidebar-nav-link');
+        if ($this->auth->isGranted('ROLE_MANAGE_USERS')) {
+            $menu->addChild('Users', ['route' => 'users'])
+                ->setExtra('icon', 'c-sidebar-nav-icon fas fa-user-cog')
+                ->setExtra('routes', [
+                    ['route' => 'users'],
+                    ['pattern' => '/^users\..+/']
+                ])
+                ->setAttribute('class', 'c-sidebar-nav-item')
+                ->setLinkAttribute('class', 'c-sidebar-nav-link');
+        }
 
         $menu->addChild('Profile', ['route' => 'profile'])
             ->setExtra('icon', 'c-sidebar-nav-icon fas fa-user-circle')
