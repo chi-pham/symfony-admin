@@ -46,6 +46,10 @@ manager-assets-install:
 	docker-compose run --rm manager-node yarn install
 	docker-compose run --rm manager-node npm rebuild node-sass
 
+manager-assets-update:
+	docker-compose run --rm manager-node yarn upgrade
+	docker-compose run --rm manager-node npm rebuild node-sass
+
 manager-ready:
 	docker run --rm -v ${PWD}/manager:/app --workdir=/app alpine touch .ready
 
