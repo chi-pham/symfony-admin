@@ -15,7 +15,7 @@ use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class RoleCommand extends Command
+class ChangeRoleCommand extends Command
 {
     private UserFetcher $users;
     private ValidatorInterface $validator;
@@ -32,7 +32,7 @@ class RoleCommand extends Command
     protected function configure(): void
     {
         $this
-            ->setName('user:role')
+            ->setName('user:change-role')
             ->setDescription('Changes user role');
     }
 
