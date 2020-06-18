@@ -31,23 +31,13 @@ class ListCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $allUsers = $this->users->findBy([], ['id' => 'DESC']);
-
-        $usersAsPlainArrays = array_map(function (User $user) {
-            return [
-                $user->getId()->getValue(),
-                $user->getName()->getFull(),
-                $user->getEmail()->getValue(),
-                $user->getRole()->getName(),
-                $user->getStatus(),
-            ];
-        }, $allUsers);
+        $allUsers = $this->users->getUsersAsPlainArrays();
 
         $bufferedOutput = new BufferedOutput();
         $io = new SymfonyStyle($input, $bufferedOutput);
         $io->table(
             ['ID', 'Full Name', 'Email', 'Role', 'Status'],
-            $usersAsPlainArrays
+            $allUsers
         );
 
         $usersAsATable = $bufferedOutput->fetch();

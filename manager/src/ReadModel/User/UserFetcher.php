@@ -162,4 +162,19 @@ class UserFetcher
     {
         return $this->repository->findBy($criteria, $orderBy, $limit, $offset);
     }
+
+    public function getUsersAsPlainArrays(?int $maxResults = null): array
+    {
+        $allUsers = $this->findBy([], ['id' => 'DESC'], $maxResults);
+
+        return array_map(function (User $user) {
+            return [
+                $user->getId()->getValue(),
+                $user->getName()->getFull(),
+                $user->getEmail()->getValue(),
+                $user->getRole()->getName(),
+                $user->getStatus(),
+            ];
+        }, $allUsers);
+    }
 }
