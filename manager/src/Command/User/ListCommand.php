@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Command\User;
 
-use App\Model\User\Entity\User\User;
 use App\ReadModel\User\UserFetcher;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
