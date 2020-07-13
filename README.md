@@ -17,6 +17,7 @@ It includes commonly used configurations that would allow you to focus on adding
     * [3. Start containers](#3-start-containers)
     * [4. Using application](#4-using-application)
     * [5. Stop application](#5-stop-application)
+  * [Commands](#commands)    
   * [Testing](#testing)
   * [Inspired](#inspired)
   * [License](#license)
@@ -87,6 +88,12 @@ You can run tests by following command:
 ```bash
 make test
 ```
+
+## Commands
+* `user:change-password` - changes password for user
+* `user:create` - creates new user
+* `user:change-role` - changes user role
+* `user:list` - lists all the existing users
 
 ## Inspired
 
