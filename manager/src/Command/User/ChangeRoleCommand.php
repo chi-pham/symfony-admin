@@ -49,7 +49,7 @@ class ChangeRoleCommand extends Command
         $command = new Role\Command($user->id);
 
         $roles = [RoleValue::USER, RoleValue::ADMIN];
-        $command->role = $helper->ask($input, $output, new ChoiceQuestion('Role: ', $roles, 0));
+        $command->role = (string)$helper->ask($input, $output, new ChoiceQuestion('Role: ', $roles, 0));
 
         $violations = $this->validator->validate($command);
 

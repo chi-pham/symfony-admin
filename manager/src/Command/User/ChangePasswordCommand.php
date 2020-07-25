@@ -39,7 +39,7 @@ class ChangePasswordCommand extends Command
     {
         $helper = $this->getHelper('question');
 
-        $email = $helper->ask($input, $output, new Question('Email: '));
+        $email = (string)$helper->ask($input, $output, new Question('Email: '));
 
         if (!$user = $this->users->findByEmail($email)) {
             throw new LogicException('User is not found.');

@@ -38,9 +38,9 @@ class CreateCommand extends Command
         $helper = $this->getHelper('question');
 
         $command = new Create\Command();
-        $command->email = $helper->ask($input, $output, new Question('Email: ', ''));
-        $command->firstName = $helper->ask($input, $output, new Question('First name: ', ''));
-        $command->lastName = $helper->ask($input, $output, new Question('Last name: ', ''));
+        $command->email = (string)$helper->ask($input, $output, new Question('Email: ', ''));
+        $command->firstName = (string)$helper->ask($input, $output, new Question('First name: ', ''));
+        $command->lastName = (string)$helper->ask($input, $output, new Question('Last name: ', ''));
 
         $violations = $this->validator->validate($command);
 
